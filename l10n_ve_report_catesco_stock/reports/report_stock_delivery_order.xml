@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report id="id_report_delivery" string="Recepción de produción" model="stock.picking" report_type="qweb-pdf" name="l10n_ve_report_catesco_stock.template_delivery_report" file="l10n_ve_report_catesco_stock.template_delivery_report" />
+
+
+    <template id="template_delivery_report">
+        <t t-call="web.html_container">            <!-- realiza llamados a template propio de odoo -->
+            <!-- <t t-call="web.basic_layout">                -->
+            <!-- realiza llamados a template propio de odoo -->
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page small">
+                        <div class="col-3 mb4">
+                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height: 60px;" alt="Logo"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 h6">
+                                <span t-field="o.name"/>
+                            </div>
+                            <div class="col-6 h6">
+
+                                <span>Entregar a:</span>
+                                <span t-field="o.deliver_to"/>
+                            </div>
+                        </div>
+                        <div class="row h6">
+                            <div class="col-6 h6">
+
+                                <span t-field="o.scheduled_date"/>
+                            </div>
+                            <div class="col-6">
+                                <span>Código:</span>
+                                <span t-field="o.deliver_to_code"/>
+                            </div>
+                        </div>
+
+                        <div class="h6">
+
+                            <span t-field="o.picking_type_id"/>
+                        </div>
+                        <div class="h6">
+                            <span>Ubicación origen:</span>
+                            <span t-field="o.location_id"/>
+                        </div>
+                        <div class="h6">
+                            <span>Ubicación destino:</span>
+                            <span t-field="o.location_dest_id"/>
+                        </div>
+
+
+
+
+                        <table class="table " >
+                            <t t-set="total_qty"  t-value="sum(o.move_line_nosuggest_ids.mapped('qty_done'))" />
+                            <thead>
+                                <tr class="border-0 h6">
+
+                                    <th>
+                                        <span>Cantidad</span>
+                                    </th>
+                                    <th name="th_product">
+                                        <strong>Producto</strong>
+                                    </th>
+                                    <th name="th_product">
+                                        <strong>Lote</strong>
+                                    </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.move_line_nosuggest_ids" t-as="ml">
+                                    <!-- In case you come accross duplicated lines, ask NIM or LAP -->
+                                    <!--<t foreach="o.move_line_ids.sorted(key=lambda m: m.product_id.id)"  t-as="ml">-->
+                                        <tr style="margin-bottom:1px;margin-top:0px" class="border-0 h6">
+
+                                            <td class="border-0 h6">
+                                                <!-- <span t-if="o.state != 'done'" t-field="ml.product_uom_qty"  t-options-widget="&quot;float&quot;" t-options-precision="4"/> -->
+                                                <span t-field="ml.qty_done" t-options-widget="&quot;float&quot;" t-options-precision="4"/>
+                                                <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+                                            </td>
+                                            <td class="border-0 h6">
+                                                <span t-field="ml.product_id.display_name"/>
+                                                <br/>
+                                                <span t-field="ml.product_id.description_picking"/>
+                                            </td>
+                                            <td class="border-0 h6">
+                                                <span t-field="ml.lot_name"/>
+                                                <!-- <br/>
+                                                <span t-field="ml.product_id.description_picking"/> -->
+                                            </td>
+
+                                        </tr>
+                                    <!--</t>-->
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <div class="row h6">
+                            <div class="col-6">
+                                <span>Total:</span>
+                                <span t-esc="total_qty" t-options-widget="&quot;float&quot;" t-options-precision="4"/>
+                            </div>
+                            <div class="col-6">
+                                <span/>
+                            </div>
+                        </div>
+                        <div class="row h6">
+                            <div class="col-6">
+                                <span>Entregado por:</span>
+                                <span t-field="o.deliver_by"/>
+
+                            </div>
+                            <div class="col-6">
+                                <span/>
+                            </div>
+                        </div>
+                        <div class="row h6">
+                            <div class="col-6">
+                                <span>Nota:</span>
+                                <span t-field="o.note"/>
+
+                            </div>
+                            <div class="col-6">
+                                <span/>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </t>
+            </t>
+        </t>
+
+        <!-- </t> -->
+
+
+
+    </template>
+
+
+
+
+
+    <!--record id="l10n_ve_withholding_iva.action_withholdong_vat_report" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="l10n_ve_withholding_iva.paperformat_withholding_vat_report"/>
+    </record-->
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_help_table_catesco_helpdesk_warrantycodes,help_table_catesco.helpdesk_warrantycodes,model_helpdesk_warrantycodes,base.group_user,1,1,1,1
+access_help_table_catesco_helpdesk_defectcode,help_table_catesco.helpdesk_defectcode_method,model_helpdesk_defectcode,base.group_user,1,1,1,1
+access_help_table_catesco_helpdesk_tierbrand,help_table_catesco.helpdesk_tierbrand,model_helpdesk_tierbrand,base.group_user,1,1,1,1
+access_help_table_catesco_helpdesk_carbrand,help_table_catesco.helpdesk_carbrand,model_helpdesk_carbrand,base.group_user,1,1,1,1
+access_help_table_catesco_helpdesk_carmodel,help_table_catesco.helpdesk_carmodel,model_helpdesk_carmodel,base.group_user,1,1,1,1

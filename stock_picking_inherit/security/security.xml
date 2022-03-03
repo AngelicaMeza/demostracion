@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id = "grupo_tipo_operacion_especial" model = "res.groups" > 
+        <field name = "name"> Acceso a operaciones especiales </field>
+    </record>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

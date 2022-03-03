@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_import,model.access.purchase.import,model_purchase_import,base.group_user,1,1,1,1
+access_customs_office,model.access.customs.office,model_customs_office,base.group_user,1,1,1,1
+access_merchandise_status,model.access.merchandise.status,model_merchandise_status,base.group_user,1,1,1,1

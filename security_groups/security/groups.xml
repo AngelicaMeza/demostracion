@@ -1,0 +1,596 @@
+<odoo>
+    <data>
+        <!--#####################################################################################################################################################################-->
+        <!--#####################################################################################################################################################################-->
+        <!--                           GRUPOS MÓDULO INVENTARIO                                                                                                                 -->
+        <!--#####################################################################################################################################################################-->
+        <!--#####################################################################################################################################################################-->
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Información General" ***********-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_general_information_1" model="res.groups">
+            <field name="name">* Menú "Información General" [CRUD]</field>
+        </record>
+        <record id="group_menuitem_general_information_2" model="res.groups">
+            <field name="name">* Menú "Información General" [R]</field>
+        </record>
+        <record id="group_menuitem_general_information_3" model="res.groups">
+            <field name="name">* Menú "Información General" [CRU]</field>
+        </record>
+        <record id="stock.stock_picking_type_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_general_information_1')), (4,ref('group_menuitem_general_information_2')),
+                (4,ref('group_menuitem_general_information_3')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Operaciones" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_operations" model="res.groups">
+            <field name="name">* Menú "Operaciones"</field>
+        </record>
+        <record id="stock.menu_stock_warehouse_mgmt" model="ir.ui.menu">
+            <field name="groups_id"
+                eval="[(4,ref('group_menuitem_operations')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Operaciones/Transferencias" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_transfers_1" model="res.groups">
+            <field name="name">* Menú "Operaciones/Transferencias" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="group_menuitem_transfers_2" model="res.groups">
+            <field name="name">* Menú "Operaciones/Transferencias" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="group_menuitem_transfers_3" model="res.groups">
+            <field name="name">* Menú "Operaciones/Transferencias" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="stock.all_picking" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager')), (4,ref('group_menuitem_transfers_1')),
+                        (4,ref('group_menuitem_transfers_2')),(4,ref('group_menuitem_transfers_3'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Operaciones/Agrupación de albaranes" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_picking_batch_1" model="res.groups">
+            <field name="name">* Menú "Operaciones/Agrupación de albaranes" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="group_menuitem_picking_batch_2" model="res.groups">
+            <field name="name">* Menú "Operaciones/Agrupación de albaranes" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="group_menuitem_picking_batch_3" model="res.groups">
+            <field name="name">* Menú "Operaciones/Agrupación de albaranes" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="stock_picking_batch.stock_picking_batch_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager')), (4,ref('group_menuitem_picking_batch_1')),
+                        (4,ref('group_menuitem_picking_batch_2')), (4,ref('group_menuitem_picking_batch_3'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ  "Operaciones/Ajustes de Inventario************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_inventory_form_1" model="res.groups">
+            <field name="name">* Menú "Operaciones/Ajustes de Inventario" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="group_menuitem_inventory_form_2" model="res.groups">
+            <field name="name">* Menú "Operaciones/Ajustes de Inventario" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="group_menuitem_inventory_form_3" model="res.groups">
+            <field name="name">* Menú "Operaciones/Ajustes de Inventario" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="stock.menu_action_inventory_form" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager')), (4,ref('group_menuitem_inventory_form_1')), 
+                        (4,ref('group_menuitem_inventory_form_2')), (4,ref('group_menuitem_inventory_form_3'))]" />
+        </record>
+
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ  "Operaciones/Desechar" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_scrap_1" model="res.groups">
+            <field name="name">* Menú "Operaciones/Desechar" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="group_menuitem_scrap_2" model="res.groups">
+            <field name="name">* Menú "Operaciones/Desechar" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="stock.menu_stock_scrap" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager')), (4,ref('group_menuitem_scrap_1')), 
+            (4,ref('group_menuitem_scrap_2'))]" />
+        </record>
+
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ  "Operaciones/Costes en destino" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_landed_cost_1" model="res.groups">
+            <field name="name">* Menú "Operaciones/Costes en destino" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="group_menuitem_landed_cost_2" model="res.groups">
+            <field name="name">* Menú "Operaciones/Costes en destino" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="stock_landed_costs.menu_stock_landed_cost" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager')), (4,ref('group_menuitem_landed_cost_1')),
+                (4,ref('group_menuitem_landed_cost_2'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ  "Operaciones/Ejecutar planificador" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_procurement" model="res.groups">
+            <field name="name">* Menú "Operaciones/Ejecutar planificador"</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_operations'))]" />
+        </record>
+        <record id="stock.menu_procurement_compute" model="ir.ui.menu">
+            <field name="groups_id"
+                eval="[(4,ref('stock.group_stock_manager')), (4,ref('group_menuitem_procurement'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Datos Principales"  ***********-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_master_data" model="res.groups">
+            <field name="name">* Menú "Datos Principales"</field>
+        </record>
+        <record id="stock.menu_stock_inventory_control" model="ir.ui.menu">
+            <field name="groups_id"
+                eval="[(4,ref('group_menuitem_master_data')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Datos Principales/Productos" ***********-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_products" model="res.groups">
+            <field name="name">* Menú "Datos Principales/Productos" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_master_data'))]" />
+        </record>
+        <record id="stock.menu_product_variant_config_stock" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_products')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--Menú principal del módulo Inventario-->
+        <menuitem name="Inventory" id="stock.menu_stock_root" sequence="30"
+            groups="stock.group_stock_manager,stock.group_stock_user,group_menuitem_products"
+            web_icon="stock,static/description/icon.png" />
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Datos Principales/Reglas de abastecimiento" ***********-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_reordening_rules_1" model="res.groups">
+            <field name="name">* Menú "Datos Principales/Reglas de abastecimiento" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_master_data'))]" />
+        </record>
+        <record id="group_menuitem_reordening_rules_2" model="res.groups">
+            <field name="name">* Menú "Datos Principales/Reglas de abastecimiento" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_master_data'))]" />
+        </record>
+        <record id="stock.menu_reordering_rules_config" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager')), (4,ref('group_menuitem_reordening_rules_1')), 
+                (4,ref('group_menuitem_reordening_rules_2'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Datos Principales/Lotes/Números de serie" ***********-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_lots_1" model="res.groups">
+            <field name="name">* Menú "Datos Principales/Lotes/Números de serie" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_master_data'))]" />
+        </record>
+
+        <record id="group_menuitem_lots_2" model="res.groups">
+            <field name="name">* Menú "Datos Principales/Lotes/Números de serie" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_master_data'))]" />
+        </record>
+        <record id="stock.menu_action_production_lot_form" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager')), (4,ref('group_menuitem_lots_1')),
+            (4,ref('group_menuitem_lots_2'))]" />
+        </record>
+
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Informes" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_reports" model="res.groups">
+            <field name="name">* Menú "Informes"</field>
+        </record>
+        <record id="stock.menu_warehouse_report" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_reports')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Informes/Análisis de Almacén" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <!-- Menú Análisis de Almacén, se le añade los grupos necesarios-->
+        <record id="group_menuitem_stock_dashboard_1" model="res.groups">
+            <field name="name">* Menú "Informes/Análisis de Almacén" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="stock_enterprise.stock_dashboard_menuitem" model="ir.ui.menu">
+            <field name="groups_id"
+                eval="[(4,ref('group_menuitem_stock_dashboard_1')),(4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Informes/Informe de inventario" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <!-- Menú Informe de inventario, se le añade los grupos necesarios-->
+        <record id="group_menuitem_stock_report_1" model="res.groups">
+            <field name="name">* Menú "Informes/Informe de inventario" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="group_menuitem_stock_report_2" model="res.groups">
+            <field name="name">* Menú "Informes/Informe de inventario" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="group_menuitem_stock_report_3" model="res.groups">
+            <field name="name">* Menú "Informes/Informe de inventario" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="stock.menu_valuation" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_stock_report_1')), (4,ref('group_menuitem_stock_report_2')),
+                (4,ref('group_menuitem_stock_report_3')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Informes/Inventario previsto" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_forecast_inventory" model="res.groups">
+            <field name="name">* Menú "Informes/Inventario previsto" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="stock.menu_forecast_inventory" model="ir.ui.menu">
+            <field name="groups_id"
+                eval="[(4,ref('group_menuitem_forecast_inventory')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Informes/Valoración del inventario" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_stock_valuation_1" model="res.groups">
+            <field name="name">* Menú "Informes/Valoración del inventario" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="group_menuitem_stock_valuation_2" model="res.groups">
+            <field name="name">* Menú "Informes/Valoración del inventario" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="group_menuitem_stock_valuation_3" model="res.groups">
+            <field name="name">* Menú "Informes/Valoración del inventario" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="stock_account.menu_valuation" model="ir.ui.menu">
+            <field name="groups_id"
+                eval="[(4,ref('group_menuitem_stock_valuation_1')), (4,ref('group_menuitem_stock_valuation_2')),
+                (4,ref('group_menuitem_stock_valuation_3')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Informes/Movimientos de stock" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_stock_move_1" model="res.groups">
+            <field name="name">* Menú "Informes/Movimientos de stock" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="group_menuitem_stock_move_2" model="res.groups">
+            <field name="name">* Menú "Informes/Movimientos de stock" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="group_menuitem_stock_move_3" model="res.groups">
+            <field name="name">* Menú "Informes/Movimientos de stock" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="stock.stock_move_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_stock_move_1')), (4,ref('group_menuitem_stock_move_2')),
+                (4,ref('group_menuitem_stock_move_3')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Informes/Movimientos productos" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_stock_move_line_1" model="res.groups">
+            <field name="name">* Menú "Informes/Movimientos productos" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="group_menuitem_stock_move_line_2" model="res.groups">
+            <field name="name">* Menú "Informes/Movimientos productos" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="group_menuitem_stock_move_line_3" model="res.groups">
+            <field name="name">* Menú "Informes/Movimientos productos" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_reports'))]" />
+        </record>
+        <record id="stock.stock_move_line_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_stock_move_line_1')),(4,ref('group_menuitem_stock_move_line_2')),
+                (4,ref('group_menuitem_stock_move_line_3')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_config" model="res.groups">
+            <field name="name">* Menú "Configuración"</field>
+        </record>
+        <record id="stock.menu_stock_config_settings" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_config')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Gestión de almacenes/Almacenes" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_warehouse_1" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Almacenes" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_warehouse_2" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Almacenes" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_warehouse_3" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Almacenes" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="stock.menu_action_warehouse_form" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_warehouse_1')), (4,ref('group_menuitem_warehouse_2')), 
+                (4,ref('group_menuitem_warehouse_3')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Gestión de almacenes/Ubicaciones" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_location_1" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Ubicaciones" [R]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_location_2" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Ubicaciones" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_location_3" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Ubicaciones" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="stock.menu_action_location_form" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_location_1')), (4,ref('group_menuitem_location_2')),
+                (4,ref('group_menuitem_location_3')), (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Gestión de almacenes/Reglas" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_rule_1" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Reglas" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_rule_2" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Reglas" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="stock.menu_action_rules_form" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_rule_1')), (4,ref('group_menuitem_rule_2')),
+            (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Gestión de almacenes/Rutas" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_routes_1" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Rutas" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_routes_2" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Rutas" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="stock.menu_routes_config" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_routes_1')), (4,ref('group_menuitem_routes_2')),
+            (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Gestión de almacenes/Tipos de operaciones" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_pickingtype_1" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Tipos de operaciones" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_pickingtype_2" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Tipos de operaciones" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="stock.menu_pickingtype" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_pickingtype_1')), (4,ref('group_menuitem_pickingtype_2')),
+                 (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Gestión de almacenes/Reglas de Estrategía de Traslado" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_putaway_1" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Reglas de Estrategía de Traslado" [CRUD]
+            </field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_putaway_2" model="res.groups">
+            <field name="name">* Menú "Configuración/Gestión de almacenes/Reglas de Estrategía de Traslado" [CRU]
+            </field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="stock.menu_putaway" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_putaway_1')), (4,ref('group_menuitem_putaway_2')),
+                 (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Gestión de almacenes" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="stock.menu_warehouse_config" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_warehouse_1')),
+                (4,ref('group_menuitem_warehouse_2')),
+                (4,ref('group_menuitem_warehouse_3')),
+                (4,ref('group_menuitem_location_1')), 
+                (4,ref('group_menuitem_location_2')),
+                (4,ref('group_menuitem_location_3')),
+                (4,ref('group_menuitem_rule_1')),
+                (4,ref('group_menuitem_rule_2')),
+                (4,ref('group_menuitem_routes_1')),
+                (4,ref('group_menuitem_routes_2')),
+                (4,ref('group_menuitem_pickingtype_1')),
+                (4,ref('group_menuitem_pickingtype_2')),
+                (4,ref('group_menuitem_putaway_1')),
+                (4,ref('group_menuitem_putaway_2')),
+                (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Productos/Categorías de producto" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_product_category_1" model="res.groups">
+            <field name="name">* Menú "Configuración/Productos/Categorías de producto" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_product_category_2" model="res.groups">
+            <field name="name">* Menú "Configuración/Productos/Categorías de producto" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="stock.menu_product_category_config_stock" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_product_category_1')), (4,ref('group_menuitem_product_category_2')),
+                 (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Productos/Nomenclaturas de código de barras" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="stock.menu_wms_barcode_nomenclature_all" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Productos" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="stock.menu_product_in_config_stock" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_product_category_1')),
+                (4,ref('group_menuitem_product_category_2')),
+                (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Unidades de medida/Categorías UdM" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_uom_category_1" model="res.groups">
+            <field name="name">* Menú "Configuración/Unidades de medida/Categorías UdM" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_uom_category_2" model="res.groups">
+            <field name="name">* Menú "Configuración/Unidades de medida/Categorías UdM" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="stock.menu_stock_uom_categ_form_action" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_uom_category_1')), (4,ref('group_menuitem_uom_category_2')),
+                 (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Unidades de medida/UdM" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_uom_1" model="res.groups">
+            <field name="name">* Menú "Configuración/Unidades de medida/UdM" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_uom_2" model="res.groups">
+            <field name="name">* Menú "Configuración/Unidades de medida/UdM" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="stock.menu_stock_uom_form_action" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_uom_1')), (4,ref('group_menuitem_uom_2')),
+             (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Unidades de medida" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="stock.product_uom_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_uom_category_1')),
+            (4,ref('group_menuitem_uom_category_2')),
+            (4,ref('group_menuitem_uom_1')),
+            (4,ref('group_menuitem_uom_2')),
+            (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Entrega/Métodos de envío" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="group_menuitem_delivery_carrier_1" model="res.groups">
+            <field name="name">* Menú "Configuración/Entrega/Métodos de envío" [CRUD]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="group_menuitem_delivery_carrier_2" model="res.groups">
+            <field name="name">* Menú "Configuración/Entrega/Métodos de envío" [CRU]</field>
+            <field name="implied_ids" eval="[(4, ref('group_menuitem_config'))]" />
+        </record>
+        <record id="delivery.menu_action_delivery_carrier_form" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_menuitem_delivery_carrier_1')), (4,ref('group_menuitem_delivery_carrier_2')),
+                 (4,ref('stock.group_stock_manager'))]" />
+        </record>
+
+        <!--*****************************************************************************************************************************************************************-->
+        <!--********** ACCESO AL MENÚ "Configuración/Entrega" ************-->
+        <!--*****************************************************************************************************************************************************************-->
+
+        <record id="delivery.menu_delivery" model="ir.ui.menu">
+            <field name="groups_id" eval="[
+            (4,ref('stock.group_stock_manager')), 
+            (4,ref('group_menuitem_delivery_carrier_1')),
+            (4,ref('group_menuitem_delivery_carrier_2'))]" />
+        </record>
+
+    </data>
+</odoo>

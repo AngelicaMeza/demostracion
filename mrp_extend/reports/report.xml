@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="report_mrp_bom_inherit_mrp_plm" inherit_id="mrp.report_mrp_bom">
+        <xpath expr="//th[@name='th_mrp_bom_h']" position="after">
+            <th class="o_mrp_bom_vers">Ruta de Producción</th>
+            <!-- <th class="o_mrp_bom_ver">BoM Version</th>
+            <th class="o_mrp_ecos">ECOs</th> -->
+        </xpath>
+        <xpath expr="//td[@name='td_mrp_bom']" position="after">
+            <!-- <td class="o_mrp_bom_ver">
+                <span>
+                    <t t-esc="data['route']" />
+                </span>
+            </td> -->
+            <!-- <td class="o_mrp_ecos">
+                <span t-if="data['report_type'] == 'html'">
+                    <a href="#" t-att-data-res-id="data['bom']." t-att-data-model="'mrp.routing'" class="o_mrp_ecos_action">
+                        <t t-esc="data['route']"/>
+                    </a>
+                </span>
+                <span t-if="data['report_type'] == 'pdf'"><t t-esc="data['route']"/></span>
+            </td> -->
+            <!-- <span t-if="data['report_type'] == 'html'">
+                <a href="#" t-att-data-res-id="data['route'].id" t-att-data-model="'mrp.routing'" class="o_mrp_bom_action">
+                    <t t-esc="data['route']" />
+                </a>
+            </span>
+            <span t-if="data['report_type'] == 'pdf'">
+                <t t-esc="data['route']" />
+            </span> -->
+            <td>
+                <span>
+                    <a href="#" t-if="data['report_type'] == 'html'" t-att-data-res-id="data['route'].id" t-att-data-model="'mrp.routing'" class="o_mrp_bom_action">
+                        <t t-esc="data['route_name']" />
+                    </a>
+                    <t t-else="" t-esc="data['route_name']" />
+                </span>
+            </td>
+
+        </xpath>
+        <xpath expr="//td[@name='td_mrp_bom_f']" position="after">
+            <td class="o_mrp_bom_ver" />
+        </xpath>
+    </template>
+
+    <template id="report_mrp_bom_line_inherit_mrp_plm" inherit_id="mrp.report_mrp_bom_line">
+        <xpath expr="//td[@name='td_mrp_bom']" position="after">
+            <td>
+                <span>
+                    <a href="#" t-if="l['child_bom']" t-att-data-res-id="l['route'].id" t-att-data-model="'mrp.routing'" class="o_mrp_bom_action">
+                        <t t-esc="l['route_name']" />
+                    </a>
+                    <t t-else="" />
+                </span>
+            </td>
+
+        </xpath>
+        <xpath expr="//td[@name='td_opr']" position="after">
+            <td class="o_mrp_bom_ver" />
+            <!-- <td class="o_mrp_ecos"/> -->
+        </xpath>
+    </template>
+
+    <template id="report_mrp_operation_line_inherit_mrp_plm" inherit_id="mrp.report_mrp_operation_line">
+        <xpath expr="//td[@name='td_opr_line']" position="after">
+            <td class="o_mrp_bom_ver" />
+            <!-- <td class="o_mrp_ecos"/> -->
+        </xpath>
+    </template>
+
+    <template id="report_mrp_bom_pdf_line_inherit_mrp_plm" inherit_id="mrp.report_mrp_bom_pdf_line">
+        <xpath expr="//td[@name='td_mrp_code']" position="after">
+            <td class="o_mrp_bom_ver">
+                <span>
+                    <t t-if="l.get('route_name')" t-esc="l['route_name']" />
+                </span>
+            </td>
+            <!-- <td class="o_mrp_ecos">
+                <span><t t-if="l.get('ecos')" t-esc="l['ecos']"/></span>
+            </td> -->
+        </xpath>
+    </template>
+
+
+</odoo>

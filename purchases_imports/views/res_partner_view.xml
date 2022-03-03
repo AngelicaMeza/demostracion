@@ -1,0 +1,19 @@
+<odoo>
+	<data>
+		<record id="view_partner_form_import" model="ir.ui.view">
+			<field name="name">view.partner.form.import</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='vat']" position="after">
+					<field name="importer"
+							widget="boolean_toggle"
+							attrs="{'invisible': [('people_type_company', '!=', 'pjnd'), ('people_type_individual', '!=', 'pnnr')]}"/>
+					<field name="customs_agent"
+							widget="boolean_toggle"
+							attrs="{'invisible': [('people_type_company', '!=', 'pjnd'), ('people_type_individual', '!=', 'pnnr')]}"/>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

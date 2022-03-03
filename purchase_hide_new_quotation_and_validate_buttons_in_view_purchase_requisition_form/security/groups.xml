@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record id="group_validar_acuerdos_compra" model="res.groups">
+            <field name="name">* Puede validar acuerdos de compra</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+<odoo>
+	<data>
+		<record id="purchase_order_form_import" model="ir.ui.view">
+			<field name="name">purchase.order.form.import</field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="purchase.purchase_order_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="purchase_import_id"
+							attrs="{'invisible': ['|', ('tipo_related', '=', 'No Productivo'), '&amp;', '&amp;',('tipo_related', '=', 'Productivo'), ('importer_purchase', '=', False), ('customs_agent_purchase', '=', False)],
+									'required': [('tipo_related', '=', 'Productivo'), '|', ('importer_purchase', '=', True), ('customs_agent_purchase', '=', True)]}"/>
+					<field name="importer_purchase" invisible="1"/>
+					<field name="customs_agent_purchase" invisible="1"/>
+					<field name="tipo_related" invisible="1"/>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

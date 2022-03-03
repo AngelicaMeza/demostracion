@@ -1,0 +1,132 @@
+<odoo>
+	<data>
+				<!-- Purchase Import  -->
+				<record id="purchase_import_tree" model="ir.ui.view">
+					<field name="name">purchase.import.tree</field>
+					<field name="model">purchase.import</field>
+					<field name="arch" type="xml">
+						<tree>
+							<field name="name"/>
+							<field name="exporter"/>
+							<field name="declarant"/>
+						</tree>
+					</field>
+				</record>
+
+				<record id="purchase_import_form" model="ir.ui.view">
+					<field name="name">purchase.import.form</field>
+					<field name="model">purchase.import</field>
+					<field name="arch" type="xml">
+						<form string="Import Files">
+							<header>
+								<button name="close_state" states="in_proces" string="Close file" type="object" class="oe_highlight"/>
+								<field name="state" widget="statusbar" force_save="1"/>
+							</header>
+							<sheet>
+								<div class="oe_title">
+									<h1>
+										<field name="name" default_focus="1" placeholder="Name" required="1" readonly="1"/>
+									</h1>
+								</div>
+								<group name="group_top">
+									<group name="group_left" style="width:50%;">
+										<field name="customs_office" options="{'no_create': 1}"/>
+										<field name="consignee"/>
+										<field name="exporter"/>
+										<field name="declarant"/>
+									</group>
+									<group name="group_right" style="width:50%;">
+										<field name="import_form_external"/>
+										<field name="import_form"/>
+										<field name="import_form_date"/>
+										<field name="merchandise_status" options="{'no_create': 1}"/>
+									</group>
+								</group>
+								<notebook>
+									<page name="associated_expenses" string="Associated expenses">
+										<group>
+											<group>
+												<field name="stock_landed_cost_ids">
+													<tree create="0" delete="0">
+														<field name="name"/>
+														<field name="date"/>
+														<field name="state"/>
+													</tree>
+												</field>
+											</group>
+										</group>
+									</page>
+									<page name="plant_reception" string="Plant reception">
+										<group>
+											<field name="reception_timestamp"/>
+											<field name="received_by"/>
+										</group>
+									</page>
+									<page name="associated_invoices" string="Associated invoices">
+											<field name="invoice_ids">
+												<tree create="0" delete="0">
+													<field name="name"/>
+													<field name="nro_ctrl"/>
+													<field name="currency_id"/>
+													<field name="amount_untaxed"/>
+													<field name="amount_tax"/>
+													<field name="amount_total"/>
+													<field name="amount_residual"/>
+													<field name="state"/>
+												</tree>
+											</field>
+									</page>
+									<page name="dua" string="DUA">
+										<group>
+											<group name="group_percent" style="width:50%;" string="Percentages %">
+												<field name="percent_ADV"/>
+												<field name="percent_TSA"/>
+												<field name="percent_TSS"/>
+												<field name="percent_IVA"/>
+											</group>
+											<group name="group_DUA" style="width:50%;" string="DUA Paid">
+												<field name="DUA_ADV"/>
+												<field name="DUA_TSA"/>
+												<field name="DUA_TSS"/>
+												<field name="DUA_IVA"/>
+											</group>
+										</group>
+									</page>
+									<page name="associated_purchases" string="Associated purchases">
+										<field name="purchase_ids">
+											<tree create="0" delete="0">
+												<field name="name"/>
+												<field name="selected_user"/>
+												<field name="partner_id"/>
+												<field name="amount_total"/>
+												<field name="state"/>
+											</tree>
+										</field>
+									</page>
+								</notebook>
+							</sheet>
+						</form>
+					</field>
+				</record>
+
+				<record id="purchase_import_action" model="ir.actions.act_window">
+					<field name="name">Import Files</field>
+					<field name="res_model">purchase.import</field>
+					<field name="view_mode">tree,form</field>
+				</record>
+
+				<menuitem id="purchase_import_root"
+							name="Import Files" 
+							web_icon="purchases_imports,static/src/img/odoo_icon.png"
+							action="purchase_import_action"
+							sequence="10"
+							groups=""/>
+
+				<menuitem id="configuration_root"
+							name="Configuration"
+							parent="purchase_import_root"
+							sequence="11"
+							groups=""/>
+
+	</data>
+</odoo>

@@ -1,0 +1,135 @@
+<odoo>
+	<data>
+
+
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- Se añade el campo product_category_groups en la vista form de product.category-->
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<record id="inherit_view_category_groups" model="ir.ui.view">
+			<field name="name">inherit.view.category.groups</field>
+			<field name="model">product.category</field>
+			<field name="inherit_id" ref="product.product_category_form_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//group[@name='first']" position="after">
+					<group name="group_permits_category">
+						<field name="product_category_groups" widget="many2many_tags"/>
+					</group>
+				</xpath>
+			</field>
+		</record>
+
+
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- Se añade el campo can_see_product en la vista kanban de product.template-->
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- <record id="product_template_kanban_view_category" model="ir.ui.view">
+			<field name="name">product.template.kanban.view.category</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product.product_template_kanban_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//kanban[1]/templates[1]/t[1]/div[1]/div[2]/ul[1]/li[1]" position="after">
+					<field name="can_see_product"/>
+				</xpath>
+			</field>
+		</record> -->
+
+
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- Se añade el campo can_see_product en la vista tree de product.template-->
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- <record id="product_template_product_tree_category_tree" model="ir.ui.view">
+			<field name="name">product.template.product.tree.category.tree</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product.product_template_tree_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='product_variant_count']" position="after">
+						<field name="can_see_product"/>
+				</xpath>
+			</field>
+		</record> -->
+
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- Se añade el campo can_see_product en la vista form de product.template-->
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- <record id="product_template_only_form_view_category_form" model="ir.ui.view">
+			<field name="name">product.template.only.form.view.category.form</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product.product_template_only_form_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//form" position="attributes">
+					<attribute name="js_class">custom-form-view-stock</attribute>
+				</xpath>
+				<xpath expr="//field[@name='categ_id']" position="after">
+					<field name="can_see_product"/>
+				</xpath>
+			</field>
+		</record> -->
+
+
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- Se añade un grupo a la vista kanban del menú "Información General"-->
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- <record id="stock_production_type_kanban" model="ir.ui.view">
+			<field name="name">stock.picking.type.kanban</field>
+			<field name="model">stock.picking.type</field>
+			<field name="inherit_id" ref="stock.stock_picking_type_kanban"/>
+			<field name="arch" type="xml">
+				<xpath expr="//kanban[1]/templates[1]/t[@t-name='kanban-box']" position="attributes">
+					<attribute name="groups">security_groups.group_menuitem_general_information</attribute>
+				</xpath>
+			</field>
+		</record> -->
+
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- Se sobrescribe el action del menú "Productos"-->
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- <record id="product_template_action_product" model="ir.actions.act_window">
+			<field name="name">Products</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.template</field>
+			<field name="view_mode">kanban,tree,form</field>
+			<field name="search_view_id" ref="stock.product_template_search_form_view_stock"/>
+			<field name="domain" eval= "[('can_see_product','=', True)]"/>
+			<field name="context">{"search_default_consumable": 1, 'default_type': 'product'}</field>
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+					Create a new product
+				</p>
+			</field>
+		</record> -->
+
+
+
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- Crea una nueva action para el menú "Productos"-->
+		<!--* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+		<!-- <record id="product_template_action_product_category" model="ir.actions.act_window">
+			<field name="name">Products</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.template</field>
+			<field name="view_mode">kanban,tree,form</field>
+			<field name="search_view_id" ref="stock.product_template_search_form_view_stock"/>
+			<field name="context">{"search_default_consumable": 1, 'default_type': 'product'}</field>
+			<field name="domain" eval= "[('can_see_product','=', True)]"/>
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+					Create a new product
+				</p>
+			</field>
+		</record> -->
+
+		<!-- <menuitem id="menu_product_variant_config_stock_category" name="Productsuuuu" action="product_template_action_product_category" parent="stock.menu_stock_inventory_control" sequence="1"/> -->
+
+		<!-- <record id="product_template_product_tree_inherit_archive" model="ir.ui.view">
+			<field name="name">product.template.product.tree.inherit.archive</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product.product_template_tree_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//tree" position="attributes">
+					<attribute name="js_class">custom-list-view-stock</attribute>
+				</xpath>
+			</field>
+		</record> -->
+
+	</data>
+</odoo>

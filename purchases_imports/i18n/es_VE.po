@@ -1,0 +1,322 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchases_imports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 15:38+0000\n"
+"PO-Revision-Date: 2022-02-22 15:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__DUA_ADV
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__percent_ADV
+msgid "ADV"
+msgstr ""
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_customs_office__active
+#: model:ir.model.fields,field_description:purchases_imports.field_merchandise_status__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: purchases_imports
+#: model_terms:ir.ui.view,arch_db:purchases_imports.customs_office_search
+#: model_terms:ir.ui.view,arch_db:purchases_imports.merchandise_status_search
+msgid "Archived"
+msgstr "Archivados"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__purchase_ids
+msgid "Associated Purchase Orders"
+msgstr "Órdenes de compra asociadas"
+
+#. module: purchases_imports
+#: model_terms:ir.ui.view,arch_db:purchases_imports.purchase_import_form
+msgid "Associated expenses"
+msgstr "Gastos asociados"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__invoice_ids
+#: model_terms:ir.ui.view,arch_db:purchases_imports.purchase_import_form
+msgid "Associated invoices"
+msgstr "Facturas asociadas"
+
+#. module: purchases_imports
+#: model_terms:ir.ui.view,arch_db:purchases_imports.purchase_import_form
+msgid "Associated purchases"
+msgstr "Compras asociadas"
+
+#. module: purchases_imports
+#: model:ir.model.fields.selection,name:purchases_imports.selection__purchase_import__state__close
+msgid "Close"
+msgstr "Cerrado"
+
+#. module: purchases_imports
+#: model_terms:ir.ui.view,arch_db:purchases_imports.purchase_import_form
+msgid "Close file"
+msgstr "Cerrar expediente"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_customs_office__code
+#: model:ir.model.fields,field_description:purchases_imports.field_merchandise_status__code
+msgid "Code"
+msgstr "Código"
+
+#. module: purchases_imports
+#: model:ir.ui.menu,name:purchases_imports.configuration_root
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__consignee
+msgid "Consignee"
+msgstr "Consignatario"
+
+#. module: purchases_imports
+#: model:ir.model,name:purchases_imports.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__stock_landed_cost_ids
+msgid "Costs in Destinations"
+msgstr "Costos en Destinos"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_customs_office__create_uid
+#: model:ir.model.fields,field_description:purchases_imports.field_merchandise_status__create_uid
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_customs_office__create_date
+#: model:ir.model.fields,field_description:purchases_imports.field_merchandise_status__create_date
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: purchases_imports
+#: model_terms:ir.ui.view,arch_db:purchases_imports.customs_office_form
+msgid "Custom"
+msgstr "Aduana"
+
+#. module: purchases_imports
+#: model:ir.actions.act_window,name:purchases_imports.customs_office_action
+#: model:ir.model,name:purchases_imports.model_customs_office
+#: model:ir.ui.menu,name:purchases_imports.customs_office_config
+#: model_terms:ir.ui.view,arch_db:purchases_imports.customs_office_form
+msgid "Customs"
+msgstr "Aduanas"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_account_move__customs_agent_invoice
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_order__customs_agent_purchase
+#: model:ir.model.fields,field_description:purchases_imports.field_res_partner__customs_agent
+#: model:ir.model.fields,field_description:purchases_imports.field_res_users__customs_agent
+msgid "Customs Agent"
+msgstr "Agente aduanal"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__customs_office
+msgid "Customs Office"
+msgstr "Aduana"
+
+#. module: purchases_imports
+#: model_terms:ir.ui.view,arch_db:purchases_imports.purchase_import_form
+msgid "DUA"
+msgstr ""
+
+#. module: purchases_imports
+#: model_terms:ir.ui.view,arch_db:purchases_imports.purchase_import_form
+msgid "DUA Paid"
+msgstr "DUA Pagada"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__reception_timestamp
+msgid "Date and Time"
+msgstr "Fecha y hora"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__declarant
+msgid "Declarant"
+msgstr "Declarante"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_customs_office__display_name
+#: model:ir.model.fields,field_description:purchases_imports.field_merchandise_status__display_name
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: purchases_imports
+#: model:ir.model.fields.selection,name:purchases_imports.selection__purchase_import__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__exporter
+msgid "Exporter"
+msgstr "Exportador"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_customs_office__id
+#: model:ir.model.fields,field_description:purchases_imports.field_merchandise_status__id
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__id
+msgid "ID"
+msgstr ""
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__DUA_IVA
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__percent_IVA
+msgid "IVA"
+msgstr ""
+
+#. module: purchases_imports
+#: model:ir.actions.act_window,name:purchases_imports.purchase_import_action
+#: model:ir.ui.menu,name:purchases_imports.purchase_import_root
+#: model_terms:ir.ui.view,arch_db:purchases_imports.purchase_import_form
+msgid "Import Files"
+msgstr "Expedientes de Importación"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__import_form_external
+msgid "Import form"
+msgstr "Expediente de Importación"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__import_form
+msgid "Import form N.º"
+msgstr "Planilla de importación N.º"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__import_form_date
+msgid "Import form date"
+msgstr "Fecha de la Planilla de Importación"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_account_move__importer_invoice
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_order__importer_purchase
+#: model:ir.model.fields,field_description:purchases_imports.field_res_partner__importer
+#: model:ir.model.fields,field_description:purchases_imports.field_res_users__importer
+msgid "Importer"
+msgstr "Importador"
+
+#. module: purchases_imports
+#: model:ir.model.fields.selection,name:purchases_imports.selection__purchase_import__state__in_proces
+msgid "In proces"
+msgstr "En proceso"
+
+#. module: purchases_imports
+#: model:ir.model,name:purchases_imports.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_customs_office____last_update
+#: model:ir.model.fields,field_description:purchases_imports.field_merchandise_status____last_update
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_customs_office__write_uid
+#: model:ir.model.fields,field_description:purchases_imports.field_merchandise_status__write_uid
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_customs_office__write_date
+#: model:ir.model.fields,field_description:purchases_imports.field_merchandise_status__write_date
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: purchases_imports
+#: model:ir.model,name:purchases_imports.model_merchandise_status
+msgid "Merchandise Status"
+msgstr "Estatus de la mercancía"
+
+#. module: purchases_imports
+#: model:ir.actions.act_window,name:purchases_imports.merchandise_status_action
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__merchandise_status
+#: model:ir.ui.menu,name:purchases_imports.merchandise_status_config
+#: model_terms:ir.ui.view,arch_db:purchases_imports.merchandise_status_form
+msgid "Merchandise status"
+msgstr "Estatus de la mercancía"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_customs_office__name
+#: model:ir.model.fields,field_description:purchases_imports.field_merchandise_status__name
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__name
+#: model_terms:ir.ui.view,arch_db:purchases_imports.purchase_import_form
+msgid "Name"
+msgstr "Nombre"
+
+#. module: purchases_imports
+#: model_terms:ir.ui.view,arch_db:purchases_imports.purchase_import_form
+msgid "Percentages %"
+msgstr "Porcentajes %"
+
+#. module: purchases_imports
+#: model_terms:ir.ui.view,arch_db:purchases_imports.purchase_import_form
+msgid "Plant reception"
+msgstr "Recepción en planta"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_account_move__purchase_import_id
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_order__purchase_import_id
+#: model:ir.model.fields,field_description:purchases_imports.field_stock_landed_cost__purchase_import_id
+msgid "Purchase Import"
+msgstr "Carpeta de importación"
+
+#. module: purchases_imports
+#: model:ir.model,name:purchases_imports.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__received_by
+msgid "Received by"
+msgstr "Recibido por"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__state
+msgid "State"
+msgstr "Estado"
+
+#. module: purchases_imports
+#: model:ir.model,name:purchases_imports.model_stock_landed_cost
+msgid "Stock Landed Cost"
+msgstr "Coste en destino"
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__DUA_TSA
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__percent_TSA
+msgid "TSA"
+msgstr ""
+
+#. module: purchases_imports
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__DUA_TSS
+#: model:ir.model.fields,field_description:purchases_imports.field_purchase_import__percent_TSS
+msgid "TSS"
+msgstr ""
+
+#. module: purchases_imports
+#: model:ir.model.constraint,message:purchases_imports.constraint_customs_office_unique_name
+msgid "There cannot be 2 customs with the same code."
+msgstr "No pueden haber 2 aduanas con el mismo codigo."
+
+#. module: purchases_imports
+#: model:ir.model,name:purchases_imports.model_purchase_import
+msgid "purchase.import"
+msgstr ""

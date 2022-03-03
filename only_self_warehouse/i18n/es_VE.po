@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* only_self_warehouse
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-04 18:06+0000\n"
+"PO-Revision-Date: 2021-11-04 18:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: only_self_warehouse
+#: model:ir.model.fields,field_description:only_self_warehouse.field_stock_location__childs_ids_all
+msgid "Childs Ids All"
+msgstr ""
+
+#. module: only_self_warehouse
+#: model:ir.model.fields,field_description:only_self_warehouse.field_stock_picking_type__im_admin
+msgid "Im Admin"
+msgstr ""
+
+#. module: only_self_warehouse
+#: model:ir.model,name:only_self_warehouse.model_stock_location
+msgid "Inventory Locations"
+msgstr "Ubicaciones de inventario"
+
+#. module: only_self_warehouse
+#: model:ir.model,name:only_self_warehouse.model_stock_picking_type
+msgid "Picking Type"
+msgstr "Tipo de albarán"
+
+#. module: only_self_warehouse
+#: model:ir.model,name:only_self_warehouse.model_stock_picking
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: only_self_warehouse
+#: model:ir.model.fields,field_description:only_self_warehouse.field_res_users__user_warehouse_id
+msgid "User Warehouse"
+msgstr "almacenes del usuario"
+
+#. module: only_self_warehouse
+#: model:ir.model,name:only_self_warehouse.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: only_self_warehouse
+#: model:ir.model.fields,field_description:only_self_warehouse.field_stock_picking__warehouse_locations
+msgid "Warehouse Locations"
+msgstr "Localizaciones de almacenes"
+
+#. module: only_self_warehouse
+#: model_terms:ir.ui.view,arch_db:only_self_warehouse.view_users_form_inherit_base
+msgid "warehouses"
+msgstr "Almacenes"

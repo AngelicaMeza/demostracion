@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Tecnativa - David Vidal
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_move_form_custo_tax" model="ir.ui.view">
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <!-- For ensuring the storage of these fields -->
+           
+            <field name="date" position="after">
+                <field name="custom_tax_id"  attrs="{'invisible': [ '|', ('type', 'not in',  ('in_invoice', 'in_refund', 'in_receipt')), ('people_type_company1', '!=', 'pjnd')], 'required': [('type', 'in',  ('in_invoice', 'in_refund', 'in_receipt')), ('people_type_company1', '=', 'pjnd')]}" />
+            </field>
+            
+            <field name="amount_untaxed" position="before">
+                <field
+                    name="amount_untaxed_before_custom_tax"
+                    string="Base Imponible"
+                    attrs="{'invisible': [('custom_tax_id', '=', False)]}"
+                />
+
+                <field
+                    name="amount_custom_tax"
+                    string="Impuesto Aduanal"
+                    attrs="{'invisible': [('custom_tax_id', '=', False)]}"
+                />
+            </field>
+           
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[2]/field[@name='line_ids']/tree[1]/field[@name='account_id']" position="after">
+                <field name="is_custom_tax"  invisible="1"/>
+              </xpath>
+        </field>
+
+    </record>
+</odoo>

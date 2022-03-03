@@ -1,0 +1,138 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* locv_custom_payment_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-17 17:38+0000\n"
+"PO-Revision-Date: 2021-05-17 13:49-0400\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: \n"
+"Language: es_VE\n"
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Amount Paid</span>"
+msgstr "Monto Pagado"
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Balance</span>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Circular</span>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Codigo</span>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Descripcion</span>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Invoice Date</span>"
+msgstr "Fecha"
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Invoice Number</span>"
+msgstr "Num. Factura"
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Nro Cuenta</span>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Original Amount</span>"
+msgstr "<span>Monto Original</span>"
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Reference</span>"
+msgstr "Referencia"
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Reng.</span>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<span>Tipo</span>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<strong>Customer: </strong>"
+msgstr "<strong>Cliente: </strong>"
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<strong>Direccion: </strong>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<strong>Fecha: </strong>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<strong>Moneda: </strong>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<strong>N॰ de cobro: </strong>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<strong>RIF: </strong>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<strong>Telefonos: </strong>"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "<strong>Vendor: </strong>"
+msgstr "<strong>Proveedor: </strong>"
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "El pago no tiene facturas asociadas"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "FORMATO COBRO"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "Fecha:"
+msgstr ""
+
+#. module: locv_custom_payment_report
+#: model_terms:ir.ui.view,arch_db:locv_custom_payment_report.customer_payment_report
+msgid "Usuario:"
+msgstr ""
