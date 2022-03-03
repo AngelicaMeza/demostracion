@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+     
+        <!--  Campos añadidos al formulario de stok.picking.type  -->    
+        <record id="view_picking_type_form_inherit_form_return" model="ir.ui.view">
+            <field name="name">view.picking.type.form.inherit.form</field>
+            <field name="model">stock.return.picking</field>
+            <field name= "inherit_id" ref="stock.view_stock_return_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='location_id']" position="after">
+                        <!-- <group string="New group">
+                            <group> -->
+                                <field name="reason_line"/>
+                            <!-- </group> -->
+                        <!-- </group> -->
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_picking_type_form_inherit_form_return_stock" model="ir.ui.view">
+            <field name="name">view.picking.type.form.inherit.form</field>
+            <field name="model">stock.picking</field>
+            <field name= "inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="origin" position="after">
+                    <field name="reason_return" attrs="{&quot;invisible&quot;: [[&quot;reason_return&quot;,&quot;=&quot;,False]]}"/>
+               </field>
+                <!-- <xpath expr="//field[@name='deliver_to_code']" position="after">
+                    <field name="reason_return" attrs="{&quot;invisible&quot;: [[&quot;reason_return&quot;,&quot;=&quot;,False]]}"/>
+                  </xpath> -->
+            </field>
+        </record>
+    </data>
+</odoo>

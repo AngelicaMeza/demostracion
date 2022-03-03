@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    <record id="view_purchase_requisition_form" model="ir.ui.view">
+      <field name="name">view.purchase.requisition.form</field>
+      <field name="model">purchase.requisition</field>
+      <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//button[@name='664'][2]" position="attributes">
+          <attribute name="groups">purchase_hide_new_quotation_and_validate_buttons_in_view_purchase_requisition_form.group_validar_acuerdos_compra</attribute>
+        </xpath>
+
+        <xpath expr="//button[@name='action_open']" position="attributes">
+          <attribute name="groups">purchase_hide_new_quotation_and_validate_buttons_in_view_purchase_requisition_form.group_validar_acuerdos_compra</attribute>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

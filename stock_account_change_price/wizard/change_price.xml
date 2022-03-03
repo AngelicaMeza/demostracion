@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_change_standard_price_with_date" model="ir.ui.view">
+        <field name="name">view.change.standard.price.with.date</field>
+        <field name="model">stock.change.standard.price</field>
+        <field name="inherit_id" ref="stock_account.view_change_standard_price"/>
+        <field name="arch" type="xml">
+            <field name="new_price" position="after">
+                <field name="date" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--  Action que filtra la vista tree de transferencias según el tipo de operación  -->
+        <record id="action_picking_tree_all_autoconsumo" model="ir.actions.act_window">
+                <field name="name">Transferencia autoconsumo y consumo interno</field>
+                <field name="res_model">stock.picking</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="view_mode">tree,kanban,form,calendar</field>
+                <field name="domain" eval= "[('picking_type_id.tipo_operacion_especial','=', True)]"/>
+                <field name="context">{'contact_display': 'partner_address', 'default_company_id': allowed_company_ids[0]}</field>
+                <field name="search_view_id" ref="stock.view_picking_internal_search"/>
+                <field name="help" type="html">
+                    <p class="o_view_nocontent_smiling_face">Create a new transfer</p>
+                    <p>Transfers allow you to move products from one location to another.</p>
+                </field>
+        </record> 
+        <!--  Menú que llama a la acción 'Transferencia autoconsumo y consumo interno'   -->
+        <menuitem id="all_picking_autoconsumo" name="Transferencias" parent="stock.menu_stock_warehouse_mgmt" sequence="5" 
+        action="action_picking_tree_all_autoconsumo" groups="grupo_tipo_operacion_especial"/>
+
+
+        <!--  Campos añadidos al formulario de stok.picking.type  -->    
+        <record id="view_picking_type_form_inherit_form" model="ir.ui.view">
+            <field name="name">view.picking.type.form.inherit.form</field>
+            <field name="model">stock.picking.type</field>
+            <field name= "inherit_id" ref= "stock.view_picking_type_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='default_location_dest_id']" position="after">
+                        <group string="New group">
+                            <group>
+                                <field name="tipo_operacion_especial"/>
+                            </group>
+                        </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+

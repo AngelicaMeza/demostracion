@@ -1,0 +1,85 @@
+<odoo>
+      <data>
+            <record id="purchase_order_form" model="ir.ui.view">
+                  <field name="name">purchase.order.form</field>
+                  <field name="model">purchase.order</field>
+                  <field name="inherit_id" ref="purchase.purchase_order_form"/>
+                  <field name="arch" type="xml">
+                        <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='currency_id']" position="after">
+                              <field name="selected_user" required='1' options="{'no_create':true}"/>
+                        </xpath>
+
+                        <xpath expr="//field[@name='origin']" position="after">
+                              <field name="receive_id" attrs="{'invisible': [['state','not in',['purchase','done']]]}"/>
+                        </xpath>
+                  </field>
+            </record>
+
+
+
+            <record id="vpicktree" model="ir.ui.view">
+                  <field name="name">stock.picking.tree</field>
+                  <field name="model">stock.picking</field>
+                  <field name="inherit_id" ref="stock.vpicktree"/>
+                  <field name="arch" type="xml">
+
+                        <xpath expr="//tree[1]/field[@name='name']" position="after">
+                              <field name="selected_user_purchased"/>
+                        </xpath>
+                        <xpath expr="//field[@name='partner_id']" position="after">
+                              <field name="selected_receive_id" widget="toggle_button"/>
+                        </xpath>
+
+
+
+                  </field>
+            </record>
+
+            <record id="view_picking_form" model="ir.ui.view">
+                  <field name="name">stock.picking.form</field>
+                  <field name="model">stock.picking</field>
+                  <field name="inherit_id" ref="stock.view_picking_form"/>
+                  <field name="arch" type="xml">
+
+                        <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/field[@name='owner_id']" position="after">
+                              <field name="deliver_to" string="Entregar a:" attrs="{&quot;invisible&quot;: [[&quot;es_operacion_especial&quot;,&quot;!=&quot;,True]], &quot;required&quot;: [[&quot;es_operacion_especial&quot;,&quot;=&quot;,True]]}"/>
+                              <field name="deliver_to_code" string="Código" attrs="{&quot;invisible&quot;: [[&quot;es_operacion_especial&quot;,&quot;!=&quot;,True]], &quot;required&quot;: [[&quot;es_operacion_especial&quot;,&quot;=&quot;,True]]}"/>
+
+                        </xpath>
+
+                        <xpath expr="//field[@name='location_dest_id']" position="after">
+                              <field name="deliver_by" attrs="{&quot;invisible&quot;: [[&quot;es_operacion_especial&quot;,&quot;!=&quot;,True]], &quot;required&quot;: [&quot;&amp;&quot;,[&quot;es_operacion_especial&quot;,&quot;=&quot;,True],[&quot;state&quot;,&quot;=&quot;,&quot;assigned&quot;]]}"/>
+                        </xpath>
+
+                        <xpath expr="//form[1]/header/field[@name='is_locked']" position="after">
+                              <field name="selected_receive_id" invisible="1"/>
+                              <field name="es_operacion_especial" invisible="1"/>
+                              <field name="purchase_id" invisible="1"/>
+
+                        </xpath>
+
+                        <xpath expr="//button[@name='action_picking_move_tree']" position="before">
+                              <button readonly="1" attrs="{&quot;invisible&quot;: [[&quot;purchase_id&quot;,&quot;=&quot;,False]]}" class="oe_stat_button" icon="fa-check-square">
+                                    <span style="color:green" enabled="0" attrs="{&quot;invisible&quot;: [[&quot;selected_receive_id&quot;,&quot;!=&quot;,True]]}">Recibido en Compras</span>
+                                    <span style="color:gray" enabled="0" attrs="{&quot;invisible&quot;: [[&quot;selected_receive_id&quot;,&quot;!=&quot;,False]]}">Esperando recepcion en Compras</span>
+                              </button>
+                        </xpath>
+
+                  </field>
+            </record>
+
+
+            <record id="hr_code_add" model="ir.ui.view">
+                  <field name="name">hr.view.form</field>
+                  <field name="model">hr.employee</field>
+                  <field name="inherit_id" ref="hr.view_employee_form"/>
+                  <field name="arch" type="xml">
+                        <xpath expr="//field[@name='parent_id']" position="after">
+                              <field name="employee_code"/>
+                        </xpath>
+                  </field>
+            </record>
+
+
+      </data>
+</odoo>

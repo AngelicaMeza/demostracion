@@ -1,0 +1,22 @@
+<odoo>
+  <data>
+
+  <template id="assets_backend" name="Backend Assets" inherit_id="web.assets_backend">
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/monetary_conversion_fix/static/src/js/field_utils.js"/>
+    </xpath>
+  </template>
+   
+   <record id="currency_form_inherit" model="ir.ui.view">
+     <field name="name">currency.form.inherit.increment.precision</field>
+     <field name="model">res.currency</field>
+     <field name="inherit_id" ref="base.view_currency_form" />
+     <field name="arch" type="xml">
+       <field name="rounding" position="attributes">
+         <attribute name="digits" >[12, 10]</attribute>
+       </field>
+     </field>
+   </record> 
+
+  </data>
+</odoo>

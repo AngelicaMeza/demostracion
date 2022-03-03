@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+
+
+    <record id="view_lines_debit" model="ir.ui.view">
+        <field name="name">account.debit.note.extended</field>
+        <field name="model">account.debit.note</field>
+        <field name="inherit_id" ref="account_debit_note.view_account_debit_note"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='copy_lines']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+   
+    <record id="paper_debit_view_invoice_search" model="ir.ui.view">
+        <field name="name">paper.debit.view.invoice.search</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//filter[@name='cancel']" position="after">
+                <filter string="Notas de Debito" name="debit" domain="[('debit_origin_id', '!=', False)]"/>
+            </xpath>
+
+
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="grupo_no_puede_ver_mensajes_compra" model="res.groups"> 
+        <field name = "name">No puede ver mensajes chatter en compras</field>
+    </record>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- record rules -->
+    <record id="requisitors_only_see_own_warehouse" model="ir.rule">
+        <field name="name">Usuarios solo pueden los almacenes asignados</field>
+        <field name="model_id" ref="model_stock_picking_type" />
+        <field name="groups" eval="[(4, ref('stock.group_stock_user'))]" />
+        <field name="perm_read" eval="True" />
+        <field name="perm_write" eval="True" />
+        <field name="perm_create" eval="True" />
+        <field name="perm_unlink" eval="True" />
+        <field name="domain_force">[('warehouse_id','in',user.user_warehouse_id.ids)]</field>
+    </record>
+
+    <record id="manager_see_all" model="ir.rule">
+        <field name="name">Administrador puede ver todo</field>
+        <field name="model_id" ref="model_stock_picking_type" />
+        <field name="groups" eval="[(4, ref('stock.group_stock_manager'))]" />
+        <field name="perm_read" eval="True" />
+        <field name="perm_write" eval="True" />
+        <field name="perm_create" eval="True" />
+        <field name="perm_unlink" eval="True" />
+        <field name="domain_force">[('im_admin','=',True)]</field>
+    </record>
+
+    <record id="users_see_own" model="ir.rule">
+        <field name="name">Usuarios solo pueden el inventario de los almacenes asignados</field>
+        <field name="model_id" ref="stock.model_stock_quant" />
+        <field name="groups" eval="[(4, ref('stock.group_stock_user'))]" />
+        <field name="perm_read" eval="True" />
+        <field name="perm_write" eval="True" />
+        <field name="perm_create" eval="True" />
+        <field name="perm_unlink" eval="True" />
+        <field name="domain_force">[('location_id','in',user.user_warehouse_id.lot_stock_id.childs_ids_all.ids)]</field>
+    </record>
+
+    <record id="manager_see_all_stock" model="ir.rule">
+        <field name="name">Administrador puede ver todo el inventario</field>
+        <field name="model_id" ref="stock.model_stock_quant" />
+        <field name="groups" eval="[(4, ref('stock.group_stock_manager'))]" />
+        <field name="perm_read" eval="True" />
+        <field name="perm_write" eval="True" />
+        <field name="perm_create" eval="True" />
+        <field name="perm_unlink" eval="True" />
+        <field name="domain_force">[(True,'=',True)]</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+  
+  <record id="view_move_amount_untaxed_dollar_form" model="ir.ui.view">
+    <field name="name">view.move.amount.untaxed.dollar.form</field>
+    <field name="model">account.move</field>
+    <field name="inherit_id" ref="account.view_move_form"/>
+    <field name="arch" type="xml">
+      <field name="currency_id" position="after">
+        <field name="currency_dollar_id" invisible="1" />
+        <field name="amount_untaxed_dollar" attrs="{'invisible': [('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund'))]}"/>
+      </field>
+    </field>
+  </record>
+
+</odoo>

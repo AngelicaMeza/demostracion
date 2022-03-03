@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <template id="advance_payment_receipt_report" name="advanced payment report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang or o.company_id.partner_id.lang"/>
+                <t t-call="locv_account_advance_payment.advanced_payment_document_report" t-lang="lang"/>
+            </t>
+        </t>
+   </template>
+   
+   <template id="advanced_payment_document_report" name="advanced payment document">
+    <t t-call="web.external_layout">
+        <t t-set="o" t-value="o.with_context(lang=lang)"/>
+        <t t-set="advance" t-value="o.advance_apply_ids and o.advance_apply_ids[0] or False" />
+        <div class="page">
+            <div class="row">
+            <div class="col-8">
+                <p class="h5"><span t-field="res_company.name"/></p>
+                <p class="h5"><span t-field="res_company.partner_id.vat"/></p>
+            </div>
+            <div class="col-4">
+                <p>Usuario: <span t-field="user.name"/></p>
+                <!--<p>Fecha: <span t-esc="time.strftime('%d/%m/%Y %H:%M:%S %p')"/></p> -->
+                <p>Fecha: <span t-esc="datetime.datetime.strftime(context_timestamp(datetime.datetime.today()), '%d/%m/%Y %H:%M:%S %p')"/></p>
+            </div>
+            </div>
+            <t t-if="advance">
+            <h4 class="text-center my-5">FORMATO COBRO</h4>
+            <div class="row">
+                <div class="col-8" t-if="advance.is_supplier or advance.is_customer">
+                    <div>
+                    <t t-if="advance.is_customer">
+                        <strong>Cliente: </strong>
+                    </t>
+                    <t t-if="advance.is_supplier">
+                        <strong>Proveedor: </strong>
+                    </t><span t-field="advance.partner_id"/>
+                    </div>
+                    <div><strong>RIF: </strong><span t-field="advance.partner_id.vat"/></div>
+                    <div><strong>Telefonos: </strong><span t-field="advance.partner_id.phone"/> <span t-field="advance.partner_id.mobile"/></div>
+                    <div><strong>Direccion: </strong><span t-field="advance.partner_id.street"/></div>
+                </div>
+            <div class="col-4">
+                <div t-if="advance.ref">
+                    <strong>N॰ de cobro: </strong><span t-field="o.name"/>
+                </div>
+                <div><strong>Fecha: </strong><span t-field="advance.date_apply"/></div>
+            </div>
+            </div>
+            <div class="row my-3">
+            <div class="col-12">
+                <strong>Moneda: </strong><span t-field="advance.amount_currency_apply"/>
+                </div>
+            </div>
+            
+            
+            <table style="font-size:14px;" class="table table-sm my-5">
+                <thead>
+                    <tr>
+                        <th><span>Tipo</span></th>
+                        <th><span>Circular</span></th>
+                        <th><span>Codigo</span></th>
+                        <th><span>Descripcion</span></th>
+                        <th><span>Nro Cuenta</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span t-field="advance.journal_id.type" /></td>
+                        <td><span t-field="advance.ref"/></td>
+                        <td><span t-field="advance.journal_id.code"/></td>
+                        <td><span t-field="advance.journal_id.name"/></td>
+                        <td>
+                        <span t-if="advance.journal_id.type == 'bank'" t-field="advance.journal_id.bank_account_id"/>
+                        <span t-if="advance.journal_id.type != 'bank' and advance.is_supplier" t-field="advance.partner_id.account_advance_payment_purchase_id.code"/>
+                        <span t-if="advance.journal_id.type != 'bank' and advance.is_customer " t-field="advance.partner_id.account_advance_payment_sales_id.code"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            
+            <table style="font-size:14px;" class="table table-condensed my-5">
+                <thead>
+                    <tr>
+                        <th><span>Reng.</span></th>
+                        <th><span>Tipo</span></th>
+                        <th class="text-center"><span>Fecha</span></th>
+                        <th><span>Num. Factura</span></th>
+                        <th><span>Referencia</span></th>
+                        <th class="text-right"><span>Monto Original</span></th>
+                        <th class="text-center"><span>Retenido</span></th>
+                        <th class="text-right"><span>Monto Pagado</span></th>
+                        <th class="text-right"><span>Balance</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span>1</span></td>
+                        <td><span t-field="advance.invoice_id.journal_id.code"/></td>
+                        <td><span t-field="advance.invoice_id.invoice_date"/></td>
+                        <td><span t-field="advance.invoice_id.name"/></td>
+                        <td><span t-field="advance.invoice_id.ref"/></td>
+                        <td class="text-right"><span t-field="advance.invoice_id.amount_total"/></td>
+                        <td class="text-right">
+                        <t t-if="advance.invoice_id.wh_iva_id and advance.invoice_id.wh_iva_id.state == 'done'">
+                            <span t-esc="advance.invoice_id.wh_iva_id.currency_id.with_context(date=advance.invoice_id.wh_iva_id.date_ret).compute(advance.invoice_id.wh_iva_id.total_tax_ret, advance.invoice_id.currency_id)" 
+                            t-options="{'widget': 'monetary', 'display_currency': advance.invoice_id.currency_id}"/>
+                        </t>
+                        <t t-if="not advance.invoice_id.wh_iva_id or advance.invoice_id.wh_iva_id.state != 'done'">
+                            <span>N/A</span>
+                        </t>
+                        </td>
+                        <td class="text-right"><span t-esc="advance.amount_currency_apply.with_context(date=advance.date_apply).compute(advance.amount_apply, advance.invoice_id.currency_id)" t-options="{'widget': 'monetary', 'display_currency': advance.invoice_id.currency_id}"/></td>
+                        <td class="text-right"><span t-field="advance.invoice_id.amount_residual"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            </t>
+            <t t-if="not advance"><h3 class="text-center my-5">No es un asiento de anticipo.</h3></t>
+        </div>
+    </t>
+   </template>
+
+
+   <report
+       id="advance_payment_invoice_report"
+       model="account.move"
+       string="Reporte De Pago"
+       report_type="qweb-pdf"
+       name="locv_account_advance_payment.advance_payment_receipt_report"
+       file="locv_account_advance_payment.advance_payment_receipt_report"
+   />
+
+</odoo>

@@ -1,0 +1,42 @@
+<odoo>
+  <data>
+    <!-- selector de almacen por usuario -->
+    <record id="view_users_form_inherit_base" model="ir.ui.view">
+    <field name="name">base.view.form.inherit</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//notebook/page[1]/group[1]" position="before">
+        <group name="group_top">
+          <group name="group_right">
+            <field name="user_warehouse_id" string="warehouses" widget="many2many_tags" options="{'no_create_edit': True}" attrs="{'invisible': [('sel_groups_1_8_9','!=',1)], 'readonly': [('sel_groups_1_8_9','!=',1)]}"/>
+          </group>
+        </group>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- ubucaciones filtradas por almacen -->
+  <record id="requisition_inherit_out_view" model="ir.ui.view">
+    <field name="name">requisition.inherit.out.view</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//sheet/group[1]/group[1]/field[@name='location_id']" position="after">
+        <field name="warehouse_locations" invisible="True" />
+      </xpath>
+
+      <xpath expr="//sheet/group[1]/group[1]/field[@name='location_id']" position="attributes">
+        <attribute name="domain">[('id','in',warehouse_locations)]</attribute>
+      </xpath>
+
+      <xpath expr="//sheet/group[1]/group[1]/field[@name='location_dest_id']" position="attributes">
+        <attribute name="domain">[('id','in',warehouse_locations)]</attribute>
+      </xpath>
+
+    </field>
+  </record>
+  
+  </data>
+</odoo>

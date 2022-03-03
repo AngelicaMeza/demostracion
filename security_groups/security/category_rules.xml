@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="category_permit_groups_rule" model="ir.rule">
+        <field name="name">Grupos permitidos en categorias de producto</field>
+        <field name="model_id" ref="model_product_template"/>
+        <field name="domain_force">
+            ['|', ('categ_id.product_category_groups', '=', False), ('categ_id.product_category_groups', 'in', user.groups_id.ids)]
+        </field>
+        <field name="global" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_invoice_dollar_report_pivot" model="ir.ui.view">
+        <field name="name">view.account.invoice.dollar.report.pivot</field>
+        <field name="model">account.invoice.report</field>
+        <field name="inherit_id" ref="account.view_account_invoice_report_pivot"/>
+        <field name="arch" type="xml">
+            <field name="price_subtotal" position="after">
+                <field name="amount_untaxed_dollar" type="measure" />
+            </field>
+        </field>
+    </record>
+    
+
+    <menuitem
+    id="invoice_sale_report_menu"
+    name="Facturas"
+    action="account.action_account_invoice_report_all"
+    parent="sale.menu_sale_report"
+    sequence="10"/>
+    
+    <menuitem 
+    id="menu_action_account_invoice_report_all" 
+    name="Ventas" 
+    action="sale_enterprise.sale_report_action_dashboard" 
+    parent="account.account_reports_management_menu" 
+    sequence="2"/>
+</odoo>

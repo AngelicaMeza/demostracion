@@ -1,0 +1,16 @@
+<odoo>
+      <data>
+            <record id="purchase_order_form_inherit_form" model="ir.ui.view">
+                  <field name="name">purchase.chatter.inherit.form</field>
+                  <field name="model">purchase.requisition</field>
+                  <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>   
+                  <field name="groups_id" eval="[(4,ref('purchase_inherit_chatter.grupo_no_puede_ver_mensajes_compra'))]"/>
+                  <field name="arch" type="xml">
+                        <xpath expr="//div[hasclass('oe_chatter')]" position="replace">
+                        </xpath>
+                  </field>
+            </record>
+      </data>
+</odoo>
+
+
